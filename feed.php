@@ -8,7 +8,7 @@ session_start();
 	}
 
 	if(isset($_SESSION['img'])){
-		$imgfile = "js/".$_SESSION['img'];
+		$imgfile = $_SESSION['img'];
 	}
 	
 ?>
@@ -29,7 +29,7 @@ session_start();
 					<div id="displayPic">
 						<!-- <img src= alt=""> -->
 						<?php
-							echo "<img src='$imgfile' alt='' >"
+							echo "<img src='js/$imgfile' alt='' >"
 						?>
 					</div>
 					<form action="js/uploadPic.php" method="post" id="formId" enctype="multipart/form-data">

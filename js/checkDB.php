@@ -18,6 +18,7 @@
         while($row = mysqli_fetch_assoc($result)){
             if($user == (string)$row['user'] && $pass == (string)$row['password']){
                 $_SESSION['username'] = $user;
+                $_SESSION['img'] = $row['url'];
                 header("Location: ../feed.php");
                 exit;
             }

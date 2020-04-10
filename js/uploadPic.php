@@ -16,7 +16,7 @@
         $sql = "UPDATE User SET url='uploads/$dir' WHERE user='$user'";
         if ($conn->query($sql) === TRUE) {
             echo "Record updated successfully";
-            $_SESSION['img'] = $dir;
+            $_SESSION['img'] = "uploads/".$dir;
             echo $_SESSION['img'];
             header('Location: ../feed.php');
             exit;
@@ -62,8 +62,7 @@
             
         } else {
             if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
-                writePic($target_file);
-                // header('Location: ../feed.php');
+                writePic(basename($_FILES["fileToUpload"]["name"]));
             }else{
                 echo "Sorry, there was an error uploading your file";
             }
